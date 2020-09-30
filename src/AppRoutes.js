@@ -14,8 +14,8 @@ const AppRoutes = () => {
 	if (user) {
 		return (
 			<div>
-				<Header />
 				<BrowserRouter>
+					<Header />
 					<Switch>
 						<Route exact path="/" component={Map} />
 						<Route exact path="/feed" component={Feed} />
