@@ -8,6 +8,13 @@ const HeaderContainer = styled.div`
 	align-items: center;
 	padding: 40px;
 	box-sizing: border-box;
+	z-index: 1;
+	background: rgb(205, 205, 205);
+	background: linear-gradient(
+		180deg,
+		rgba(205, 205, 205, 0.7) 0%,
+		rgba(255, 255, 255, 0) 100%
+	);
 `;
 
 const Logo = styled.img`
@@ -22,15 +29,15 @@ const Navigation = styled.div`
 `;
 
 const NavigationLink = styled.div`
-	color: white;
+	color: #3a3a3a;
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: 500;
 	text-transform: uppercase;
 	margin: 0 20px;
 	cursor: pointer;
 	transition: all 0.25s ease;
 	&:hover {
-		color: #ddd;
+		color: #0d0d0d;
 	}
 `;
 

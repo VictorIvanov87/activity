@@ -7,6 +7,7 @@ import {
 	Navigation,
 	NavigationLink,
 } from './styled/Header.styled';
+import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
 	const [search, setSearch] = useState('');
@@ -25,8 +26,12 @@ const Header = (props) => {
 				aria-label="Search"
 			/>
 			<Navigation>
-				<NavigationLink>Map</NavigationLink>
-				<NavigationLink>Feed</NavigationLink>
+				<NavigationLink as={NavLink} to="/map">
+					Map
+				</NavigationLink>
+				<NavigationLink as={NavLink} to="/feed">
+					Feed
+				</NavigationLink>
 			</Navigation>
 		</HeaderContainer>
 	);
