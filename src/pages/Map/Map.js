@@ -1,11 +1,19 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
+import { useDispatch, useSelector } from 'react-redux';
 import { MarkerIcon } from '../../components/MarkerIcon';
+import { getActivities } from '../../store/slices/activities';
 
 const Map = (props) => {
+	const dispatch = useDispatch();
 	const [error, setError] = useState(null);
 	const [position, setPosition] = useState({});
+	const activities = useSelector((state) => state.activities.data);
+
+	useEffect(() => {
+		dispatch(getActivities());
+	}, [dispatch]);
 
 	useEffect(() => {
 		if (!navigator || !navigator.geolocation) {
