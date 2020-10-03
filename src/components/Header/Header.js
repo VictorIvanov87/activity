@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LogoSrc from '../../logo.png';
+import LogoSrc from '../../images/logo.png';
 import { EuiFieldText } from '@elastic/eui';
 import {
 	HeaderContainer,
@@ -18,7 +18,7 @@ const Header = (props) => {
 
 	return (
 		<HeaderContainer>
-			<Logo src={LogoSrc} />
+			<Logo src={LogoSrc} alt="logo" />
 			<EuiFieldText
 				placeholder="Search..."
 				value={search}

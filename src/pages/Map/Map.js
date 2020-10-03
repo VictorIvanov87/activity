@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
+import { MarkerIcon } from '../../components/MarkerIcon';
 
 const Map = (props) => {
 	const [error, setError] = useState(null);
-	const [viewport, setViewport] = useState({});
+	const [position, setPosition] = useState({});
 
 	useEffect(() => {
 		if (!navigator || !navigator.geolocation) {
@@ -14,12 +15,13 @@ const Map = (props) => {
 
 		navigator.geolocation.getCurrentPosition(
 			(res) =>
-				setViewport({
+				setPosition({
 					width: '100%',
 					height: '100vh',
 					latitude: res.coords.latitude,
 					longitude: res.coords.longitude,
 					zoom: 13,
+					center: [res.coords.latitude, res.coords.longitude],
 				}),
 			(err) => setError(err),
 			{ maximumAge: 10000, timeout: 5000, enableHighAccuracy: true }
@@ -31,11 +33,20 @@ const Map = (props) => {
 	} else {
 		return (
 			<ReactMapGL
-				{...viewport}
+				{...position}
 				mapStyle="mapbox://styles/mapbox/light-v10"
 				mapboxApiAccessToken="pk.eyJ1IjoidmlrdG9yaXZhbm92ODciLCJhIjoiY2s0bHU1Y2owMDVucDNubWhxeXFuZzBqZiJ9.3TREaRyO8IbX8f2ERSFAqg"
-				onViewportChange={(nextViewport) => setViewport(nextViewport)}
-			/>
+				onViewportChange={(nextPosition) => setPosition(nextPosition)}
+			>
+				<Marker
+					latitude={position.latitude}
+					longitude={position.longitude}
+					offsetLeft={-20}
+					offsetTop={-10}
+				>
+					<MarkerIcon />
+				</Marker>
+			</ReactMapGL>
 		);
 	}
 };
