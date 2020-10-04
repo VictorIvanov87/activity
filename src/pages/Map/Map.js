@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
 import { useDispatch, useSelector } from 'react-redux';
 import { MarkerIcon } from '../../components/MarkerIcon';
-import { getActivities } from '../../store/slices/activities';
+import { getAllActivities } from '../../store/slices/activities';
 
 const Map = (props) => {
 	const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Map = (props) => {
 	const activities = useSelector((state) => state.activities.data);
 
 	useEffect(() => {
-		dispatch(getActivities());
+		dispatch(getAllActivities());
 	}, [dispatch]);
 
 	useEffect(() => {

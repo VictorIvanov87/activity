@@ -1,10 +1,14 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore } from '@reduxjs/toolkit';
 import { rootReducer } from './rootReducer';
 
-const middlewares = [thunkMiddleware];
-const storeEnchancers = composeWithDevTools(applyMiddleware(...middlewares));
-const store = createStore(rootReducer, storeEnchancers);
+const createStore = () => {
+	const store = configureStore({ reducer: rootReducer });
 
-export { store };
+	if (process.env.NODE_ENV !== 'production' && module.hot) {
+		module.hot.accept('./rootReducer', () => store.replaceReducer(rootReducer));
+	}
+
+	return store;
+};
+
+export { createStore };
