@@ -4,6 +4,8 @@ import ReactMapGL, { Marker } from 'react-map-gl';
 import { useDispatch, useSelector } from 'react-redux';
 import { MarkerIcon } from '../../components/MarkerIcon';
 import { getAllActivities } from '../../store/slices/activities';
+import * as activitiesMock from '../../mocks/activities';
+import { Activities } from '../../components/Activities';
 
 const Map = (props) => {
 	const dispatch = useDispatch();
@@ -46,6 +48,7 @@ const Map = (props) => {
 				mapboxApiAccessToken="pk.eyJ1IjoidmlrdG9yaXZhbm92ODciLCJhIjoiY2s0bHU1Y2owMDVucDNubWhxeXFuZzBqZiJ9.3TREaRyO8IbX8f2ERSFAqg"
 				onViewportChange={(nextPosition) => setPosition(nextPosition)}
 			>
+				<Activities data={activitiesMock} />
 				<Marker
 					latitude={position.latitude}
 					longitude={position.longitude}
