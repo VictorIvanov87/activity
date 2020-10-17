@@ -1,15 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { useSelector } from "react-redux";
 import { Header } from './components/Header';
 import { Map } from './pages/Map';
 import { Login } from './pages/Login';
 import { Feed } from './pages/Feed';
 
 const AppRoutes = () => {
-	const user = {
-		id: 1,
-		name: 'Victor',
-	};
+	const user = useSelector((state) => state.currentUser.data);
 
 	if (user) {
 		return (

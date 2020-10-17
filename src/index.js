@@ -5,11 +5,21 @@ import { App } from './App';
 import { Provider } from 'react-redux';
 import { createStore } from './store';
 
-ReactDOM.render(
-	<React.StrictMode>
-		<Provider store={createStore()}>
-			<App />
-		</Provider>
-	</React.StrictMode>,
-	document.getElementById('root')
-);
+const store = createStore();
+
+const renderApp = () => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+};
+
+if (module.hot) {
+  module.hot.accept("./App", renderApp);
+}
+
+renderApp();
