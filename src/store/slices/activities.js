@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import * as activitiesMock from '../../mocks/activities';
 
 const initialState = {
 	data: [],
@@ -27,11 +28,10 @@ const { reducer: activitiesReducer, actions } = createSlice({
 });
 
 const getAllActivities = () => {
-	return async (dispatch) => {
+	return (dispatch) => {
 		try {
 			dispatch(actions.getActivities());
-			const { results } = await [{}, {}];
-			dispatch(actions.getActivitiesSuccess(results));
+			dispatch(actions.getActivitiesSuccess(activitiesMock));
 		} catch (error) {
 			dispatch(actions.getActivitiesError(error));
 		}

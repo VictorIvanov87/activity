@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllActivities } from '../../store/slices/activities';
-import * as activitiesMock from '../../mocks/activities';
 import { Activities } from '../../components/Activities';
 
 const Map = (props) => {
@@ -47,7 +46,7 @@ const Map = (props) => {
 				mapboxApiAccessToken="pk.eyJ1IjoidmlrdG9yaXZhbm92ODciLCJhIjoiY2s0bHU1Y2owMDVucDNubWhxeXFuZzBqZiJ9.3TREaRyO8IbX8f2ERSFAqg"
 				onViewportChange={(nextPosition) => setPosition(nextPosition)}
 			>
-				<Activities data={activitiesMock} />
+				<Activities data={activities} />
 			</ReactMapGL>
 		);
 	}
