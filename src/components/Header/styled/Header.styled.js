@@ -41,4 +41,11 @@ const NavigationLink = styled.div`
 	}
 `;
 
-export { HeaderContainer, Logo, Navigation, NavigationLink };
+const ProfileAvatar = styled.img`
+	width: 36px;
+	height: 36px;
+	border: 2px solid black;
+	border-radius: 50%;
+`;
+
+export { HeaderContainer, Logo, Navigation, NavigationLink, ProfileAvatar };

@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { Map } from './pages/Map';
 import { Login } from './pages/Login';
 import { Feed } from './pages/Feed';
+import { Profile } from './pages/Profile';
 
 const AppRoutes = () => {
 	const user = useSelector((state) => state.currentUser.data);
@@ -17,6 +18,7 @@ const AppRoutes = () => {
 					<Switch>
 						<Route exact path="/" component={Map} />
 						<Route exact path="/feed" component={Feed} />
+						<Route exact path="/profile" component={Profile} />
 						<Redirect to="/">
 							<Route path="/" />
 						</Redirect>
