@@ -8,8 +8,8 @@ export const activities = [
 		title: 'Looking for my dog!',
 		description: faker.lorem.words(10),
 		coordinates: {
-			latitude: 43,
-			longitude: 22
+			latitude: 42.642163,
+			longitude: 23.3955948
 		}
 	},
 	{
@@ -19,8 +19,8 @@ export const activities = [
 		title: 'Just found a dog!',
 		description: faker.lorem.words(10),
 		coordinates: {
-			latitude: 42,
-			longitude: 22
+			latitude: 42.661163,
+			longitude: 23.4055948
 		}
 	}
 ];

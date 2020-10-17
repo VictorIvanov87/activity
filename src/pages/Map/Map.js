@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import ReactMapGL from 'react-map-gl';
 import { useDispatch, useSelector } from 'react-redux';
-import { MarkerIcon } from '../../components/MarkerIcon';
 import { getAllActivities } from '../../store/slices/activities';
 import * as activitiesMock from '../../mocks/activities';
 import { Activities } from '../../components/Activities';
@@ -49,14 +48,6 @@ const Map = (props) => {
 				onViewportChange={(nextPosition) => setPosition(nextPosition)}
 			>
 				<Activities data={activitiesMock} />
-				<Marker
-					latitude={position.latitude}
-					longitude={position.longitude}
-					offsetLeft={-20}
-					offsetTop={-10}
-				>
-					<MarkerIcon />
-				</Marker>
 			</ReactMapGL>
 		);
 	}
