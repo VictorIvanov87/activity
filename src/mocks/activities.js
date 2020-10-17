@@ -1,6 +1,6 @@
 import faker from 'faker';
 
-export const activities = [
+export const activitiesMock = [
 	{
 		id: faker.random.uuid(),
 		author: faker.name.findName(),
@@ -9,8 +9,8 @@ export const activities = [
 		description: faker.lorem.words(10),
 		coordinates: {
 			latitude: 42.642163,
-			longitude: 23.3955948
-		}
+			longitude: 23.3955948,
+		},
 	},
 	{
 		id: faker.random.uuid(),
@@ -20,7 +20,7 @@ export const activities = [
 		description: faker.lorem.words(10),
 		coordinates: {
 			latitude: 42.661163,
-			longitude: 23.4055948
-		}
-	}
+			longitude: 23.4055948,
+		},
+	},
 ];

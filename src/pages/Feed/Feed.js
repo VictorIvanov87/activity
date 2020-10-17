@@ -1,14 +1,18 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { FeedContainer } from './styled/Feed.styled';
-import {
-	EuiCard,
-	EuiFlexGroup,
-	EuiFlexItem,
-	EuiIcon,
-} from '@elastic/eui';
-import { activities } from '../../mocks/activities';
+import { EuiCard, EuiFlexGroup, EuiFlexItem, EuiIcon } from '@elastic/eui';
+import { getAllActivities } from '../../store/slices/activities';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Feed = (props) => {
+	const dispatch = useDispatch();
+	const activities = useSelector((state) => state.activities.data);
+
+	useEffect(() => {
+		dispatch(getAllActivities());
+	}, [dispatch]);
+
 	return (
 		<FeedContainer>
 			<EuiFlexGroup gutterSize="l">

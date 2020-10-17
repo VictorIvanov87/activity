@@ -3,7 +3,7 @@ import { Marker } from 'react-map-gl';
 import { MarkerIcon } from '../MarkerIcon/MarkerIcon';
 
 const Activities = React.memo(({ data }) => {
-	return data.activities.map((activity) => {
+	return data.map((activity) => {
 		return (
 			<Marker
 				latitude={activity.coordinates.latitude}
