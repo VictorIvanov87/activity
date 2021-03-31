@@ -4,6 +4,7 @@ import ReactMapGL from 'react-map-gl';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllActivities } from '../../store/slices/activities';
 import { Activities } from '../../components/Activities';
+import axios from 'axios';
 
 const Map = (props) => {
 	const dispatch = useDispatch();
@@ -12,7 +13,9 @@ const Map = (props) => {
 	const activities = useSelector((state) => state.activities.data);
 
 	useEffect(() => {
-		dispatch(getAllActivities());
+		fetchActivities().then(res => {
+			dispatch(getAllActivities(res.data.Items));
+		})
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -35,6 +38,14 @@ const Map = (props) => {
 			{ maximumAge: 10000, timeout: 5000, enableHighAccuracy: true }
 		);
 	}, []);
+
+	const fetchActivities = async () => {
+		const asd = await axios.get(
+			'https://dllfrca37a.execute-api.eu-central-1.amazonaws.com/dev/activities'
+		);
+
+		return asd
+	}
 
 	if (error) {
 		return <div>{error.message}</div>;

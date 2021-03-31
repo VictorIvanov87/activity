@@ -2,10 +2,14 @@ import React from 'react';
 import { useGoogleLogin } from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { refreshTokenSetup } from '../../../utils/refreshToken';
-import { setCurrentUserSuccess, setCurrentUserError } from '../../../store/slices/currentUser';
+import {
+	setCurrentUserSuccess,
+	setCurrentUserError,
+} from '../../../store/slices/currentUser';
 
 const clientId =
-	'144781989518-8gjfc37fd9ed9o434tfsa723rm288edl.apps.googleusercontent.com';
+	'612839367197-tmqaq7mja08gfuunupfbnk3at9unmda8.apps.googleusercontent.com';
+const secret = '1D4Xeth8EfZhPt0YciYWmxV4';
 
 const GoogleLoginBtn = () => {
 	const dispatch = useDispatch();

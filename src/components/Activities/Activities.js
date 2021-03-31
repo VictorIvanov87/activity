@@ -3,11 +3,12 @@ import { Marker } from 'react-map-gl';
 import { MarkerIcon } from '../MarkerIcon/MarkerIcon';
 
 const Activities = React.memo(({ data }) => {
+	console.log(data)
 	return data.map((activity) => {
 		return (
 			<Marker
-				latitude={activity.coordinates.latitude}
-				longitude={activity.coordinates.longitude}
+				latitude={Number(activity.lat)}
+				longitude={Number(activity.lng)}
 				offsetLeft={-20}
 				offsetTop={-10}
 				key={activity.id}

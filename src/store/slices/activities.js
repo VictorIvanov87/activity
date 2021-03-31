@@ -27,14 +27,20 @@ const { reducer: activitiesReducer, actions } = createSlice({
 	},
 });
 
-const getAllActivities = () => {
+// const getAllActivities = () => {
+// 	return (dispatch) => {
+// 		try {
+// 			dispatch(actions.getActivities());
+// 			dispatch(actions.getActivitiesSuccess(activitiesMock));
+// 		} catch (error) {
+// 			dispatch(actions.getActivitiesError(error));
+// 		}
+// 	};
+// };
+
+const getAllActivities = (res) => {
 	return (dispatch) => {
-		try {
-			dispatch(actions.getActivities());
-			dispatch(actions.getActivitiesSuccess(activitiesMock));
-		} catch (error) {
-			dispatch(actions.getActivitiesError(error));
-		}
+		dispatch(actions.getActivitiesSuccess(res));
 	};
 };
 
