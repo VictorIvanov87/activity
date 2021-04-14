@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,UAEC,UAAW,CACX,WAAY,CACZ,QAAS,CACT,SAAU,CACV,kCAAoC,CACpC,wBACD","file":"main.b866fd21.chunk.css","sourcesContent":["html,\r\nbody {\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n\tfont-family: 'Fira Sans', sans-serif;\r\n\tbackground-color: #eaeaea;\r\n}\r\n"]}
