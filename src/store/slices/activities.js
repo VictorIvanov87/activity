@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { activitiesMock } from '../../mocks/activities';
 
 const initialState = {
 	data: [],

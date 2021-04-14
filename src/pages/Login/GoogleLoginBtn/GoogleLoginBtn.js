@@ -9,7 +9,7 @@ import {
 
 const clientId =
 	'612839367197-tmqaq7mja08gfuunupfbnk3at9unmda8.apps.googleusercontent.com';
-const secret = '1D4Xeth8EfZhPt0YciYWmxV4';
+// const secret = '1D4Xeth8EfZhPt0YciYWmxV4';
 
 const GoogleLoginBtn = () => {
 	const dispatch = useDispatch();
