@@ -1,8 +1,9 @@
 import React from 'react';
 import {GoogleLoginBtn} from './GoogleLoginBtn';
+import {LoginPage} from './styled/Login.styled'
 
 const Login = (props) => {
-	return <div><GoogleLoginBtn/></div>;
+	return <LoginPage><GoogleLoginBtn/></LoginPage>;
 };
 
 export { Login };

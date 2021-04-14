@@ -6,6 +6,7 @@ import {
 	setCurrentUserSuccess,
 	setCurrentUserError,
 } from '../../../store/slices/currentUser';
+import { GoogleLogin } from 'react-google-login';
 
 const clientId =
 	'612839367197-tmqaq7mja08gfuunupfbnk3at9unmda8.apps.googleusercontent.com';
@@ -32,9 +33,15 @@ const GoogleLoginBtn = () => {
 	});
 
 	return (
-		<button onClick={signIn} className="button">
-			<span className="buttonText">Sign in with Google</span>
-		</button>
+		<div onClick={signIn}>
+			<GoogleLogin
+				clientId={clientId}
+				buttonText="Login With Google"
+				onSuccess={onSuccess}
+				onFailure={onFailure}
+				cookiePolicy={'single_host_origin'}
+			/>
+		</div>
 	);
 };
 
