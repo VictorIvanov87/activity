@@ -1,13 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { FeedContainer } from './styled/Feed.styled';
-import {
-	EuiCard,
-	EuiFlexGroup,
-	EuiFlexGrid,
-	EuiFlexItem,
-	EuiIcon,
-} from '@elastic/eui';
+import { EuiCard, EuiFlexGroup, EuiFlexGrid, EuiFlexItem } from '@elastic/eui';
 import { getAllActivities } from '../../store/slices/activities';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -31,7 +25,6 @@ const Feed = (props) => {
 								<EuiCard
 									textAlign="left"
 									image="https://source.unsplash.com/400x200/?City"
-									icon={<EuiIcon size="xxl" type="logoBeats" />}
 									title={activity.title}
 									description={activity.description}
 								/>
