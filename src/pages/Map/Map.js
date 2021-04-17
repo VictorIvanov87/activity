@@ -40,11 +40,11 @@ const Map = (props) => {
 	}, []);
 
 	const fetchActivities = async () => {
-		const asd = await axios.get(
+		const result = await axios.get(
 			'https://dllfrca37a.execute-api.eu-central-1.amazonaws.com/dev/activities'
 		);
 
-		return asd
+		return result;
 	}
 
 	if (error) {

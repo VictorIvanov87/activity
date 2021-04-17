@@ -3,7 +3,6 @@ import { Marker } from 'react-map-gl';
 import { MarkerIcon } from '../MarkerIcon/MarkerIcon';
 
 const Activities = React.memo(({ data }) => {
-	console.log(data)
 	return data.map((activity) => {
 		return (
 			<Marker
