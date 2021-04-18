@@ -1,5 +1,4 @@
 import React from 'react';
-import { useGoogleLogin } from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { refreshTokenSetup } from '../../../utils/refreshToken';
 import {
@@ -16,6 +15,7 @@ const GoogleLoginBtn = () => {
 	const dispatch = useDispatch();
 
 	const onSuccess = (res) => {
+		localStorage.setItem('currentUser', JSON.stringify(res.profileObj));
 		dispatch(setCurrentUserSuccess(res.profileObj));
 		refreshTokenSetup(res);
 	};
@@ -24,25 +24,15 @@ const GoogleLoginBtn = () => {
 		dispatch(setCurrentUserError(res.profileObj));
 	};
 
-	const { signIn } = useGoogleLogin({
-		onSuccess,
-		onFailure,
-		clientId,
-		isSignedIn: true,
-		accessType: 'offline',
-	});
-
 	return (
-		<div onClick={signIn}>
-			<GoogleLogin
-				clientId={clientId}
-				buttonText="Login With Google"
-				onSuccess={onSuccess}
-				onFailure={onFailure}
-				isSignedIn={true}
-				cookiePolicy={'single_host_origin'}
-			/>
-		</div>
+		<GoogleLogin
+			clientId={clientId}
+			buttonText="Login With Google"
+			onSuccess={onSuccess}
+			onFailure={onFailure}
+			isSignedIn={true}
+			cookiePolicy={'single_host_origin'}
+		/>
 	);
 };
 

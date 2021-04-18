@@ -8,18 +8,16 @@ import { createStore } from './store';
 const store = createStore();
 
 const renderApp = () => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
+	ReactDOM.render(
+		<Provider store={store}>
+			<App />
+		</Provider>,
+		document.getElementById('root')
+	);
 };
 
 if (module.hot) {
-  module.hot.accept("./App", renderApp);
+	module.hot.accept('./App', renderApp);
 }
 
 renderApp();

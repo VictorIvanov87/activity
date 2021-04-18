@@ -15,7 +15,7 @@ import {
 	ProfileAvatar,
 } from './styled/Header.styled';
 import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useGoogleLogout } from 'react-google-login';
 import { setCurrentUserSuccess } from '../../store/slices/currentUser';
 
@@ -23,13 +23,14 @@ const Header = (props) => {
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const [search, setSearch] = useState('');
-	const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-	const currentUser = useSelector((state) => state.currentUser);
+	const [isPopoverOpen, setPopover] = useState(false);
+	const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 	const { signOut } = useGoogleLogout({
 		clientId:
 			'612839367197-tmqaq7mja08gfuunupfbnk3at9unmda8.apps.googleusercontent.com',
 		onLogoutSuccess: () => {
+			localStorage.removeItem('currentUser');
 			dispatch(setCurrentUserSuccess(null));
 			history.push('/login');
 		},
@@ -44,24 +45,23 @@ const Header = (props) => {
 
 	const handleImgError = (e) => (e.target.src = defaultProfile);
 
-	const onProfileClick = () =>
-		setIsPopoverOpen((isPopoverOpen) => !isPopoverOpen);
+	const onProfileClick = () => setPopover(!isPopoverOpen);
 
-	const closePopover = () => setIsPopoverOpen(false);
+	const closePopover = () => setPopover(false);
 
 	const goToProfilePage = () => {
-		setIsPopoverOpen(false);
+		setPopover(false);
 		history.push('/profile');
 	};
 
 	const logOut = () => {
-		setIsPopoverOpen(false);
+		setPopover(false);
 		signOut();
 	};
 
 	const profile = (
 		<ProfileAvatar
-			src={currentUser.data.imageUrl}
+			src={currentUser?.imageUrl || defaultProfile}
 			onError={handleImgError}
 			alt="profile picture"
 			onClick={onProfileClick}
@@ -74,7 +74,7 @@ const Header = (props) => {
 		</EuiContextMenuItem>,
 		<EuiContextMenuItem key="logout" icon="exit" onClick={logOut}>
 			Log Out
-		</EuiContextMenuItem>,
+		</EuiContextMenuItem>
 	];
 
 	return (
