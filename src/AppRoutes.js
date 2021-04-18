@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Header } from './components/Header';
 import { Map } from './pages/Map';
@@ -20,7 +20,7 @@ const AppRoutes = () => {
 	if (currentUser) {
 		return (
 			<div>
-				<BrowserRouter>
+				<HashRouter>
 					<Header />
 					<Switch>
 						<Route exact path="/" component={Map} />
@@ -30,19 +30,19 @@ const AppRoutes = () => {
 							<Route path="/" />
 						</Redirect>
 					</Switch>
-				</BrowserRouter>
+				</HashRouter>
 			</div>
 		);
 	} else {
 		return (
-			<BrowserRouter>
+			<HashRouter>
 				<Switch>
 					<Route exact path="/login" component={Login} />
 					<Redirect to="/login">
 						<Route path="/login" />
 					</Redirect>
 				</Switch>
-			</BrowserRouter>
+			</HashRouter>
 		);
 	}
 };
